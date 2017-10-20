@@ -16,7 +16,7 @@ gulp.task('img', () => {
 });
 
 gulp.task('font', () => {
-    gulp.src('src/font/**/*.*')
+    gulp.src('src/font/*.*')
         .pipe(gulp.dest('./dist/font'));
 });
 
@@ -47,6 +47,7 @@ gulp.task('watch', () => {
     gulp.watch('src/less/**/*.less', ['styles']);
     gulp.watch('src/**/*.html', ['html']);
     gulp.watch('src/img/**/*.*', ['img']);
+    gulp.watch('src/font/*.*', ['font']);
     gulp.watch('src/js/**/*.*', ['js']);
 });
 
