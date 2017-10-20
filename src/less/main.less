@@ -3,7 +3,7 @@
 @font-face
 {
     font-family: Roboto;
-    src: url("/fonts/Roboto.ttf");
+    src: url("/font/Roboto.ttf");
     font-style: normal;
 }
 
@@ -34,25 +34,156 @@ body
 
     @media @phone-strict
     {
-        //width: 100%;
+        &__shop_logo
+        {
+            height: @header_height - 38px;
+            fill: #cc0000;
+            margin: 0;
+        }
+
+        &__oggetto_logo
+        {
+            height: @header_height - 30px;
+            width: @header_height - 30px;
+            fill: #cc0000;
+            margin: 0;
+        }
+
+        &__phone
+        {
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: @header_height;
+            color: #cc0000;
+            margin: 0;
+        }
     }
 
     @media @tablet-strict
     {
-        //width: 100%;
-        //max-width: @site_width;
+        &__shop_logo
+        {
+            height: @header_height - 26px;
+            fill: #cc0000;
+            margin: 0;
+        }
+
+        &__oggetto_logo
+        {
+            height: @header_height - 20px;
+            width: @header_height - 20px;
+            fill: #cc0000;
+            margin: 0;
+        }
+
+        &__phone
+        {
+            font-family: Roboto;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: @header_height;
+            color: #cc0000;
+            margin: 0;
+        }
     }
 
     @media @desktop
     {
-        //width: @site_width;
+        &__shop_logo
+        {
+            height: @header_height - 26px;
+            fill: #cc0000;
+            margin: 0;
+        }
+
+        &__oggetto_logo
+        {
+            height: @header_height - 20px;
+            width: @header_height - 20px;
+            fill: #cc0000;
+            margin: 0;
+        }
+
+        &__phone
+        {
+            font-family: Roboto;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: @header_height;
+            color: #cc0000;
+            margin: 0;
+        }
     }
 
     &__shop_logo
     {
-        height: @header_height - 26px;
         fill: #cc0000;
         margin: 0;
+
+        @media @phone-strict
+        {
+                height: @header_height - 38px;
+        }
+
+        @media @tablet-strict
+        {
+                height: @header_height - 26px;
+        }
+
+        @media @desktop
+        {
+                height: @header_height - 26px;
+        }
+    }
+
+    &__oggetto_logo
+    {
+        fill: #cc0000;
+        margin: 0;
+
+        @media @phone-strict
+        {
+                height: @header_height - 30px;
+                width: @header_height - 30px;
+
+        }
+
+        @media @tablet-strict
+        {
+                height: @header_height - 20px;
+                width: @header_height - 20px;
+        }
+
+        @media @desktop
+        {
+            height: @header_height - 20px;
+            width: @header_height - 20px;
+        }
+    }
+
+    &__phone
+    {
+        font-family: Roboto;
+        font-weight: bold;
+        line-height: @header_height;
+        color: #cc0000;
+        margin: 0;
+
+        @media @phone-strict
+        {
+                font-size: 14px;
+        }
+
+        @media @tablet-strict
+        {
+                font-size: 24px;
+        }
+
+        @media @desktop
+        {
+                font-size: 24px;
+        }
     }
 
     &__shop_logo:hover
@@ -61,28 +192,10 @@ body
         fill: #000000;
     }
 
-    &__oggetto_logo
-    {
-        height: @header_height - 20px;
-        width: @header_height - 20px;
-        fill: #cc0000;
-        margin: 0;
-    }
-
     &__oggetto_logo:hover
     {
         transition-duration: 0.5s;
         fill: #000000;
-    }
-
-    &__phone
-    {
-        font-family: Roboto;
-        font-size: 24px;
-        font-weight: bold;
-        line-height: @header_height;
-        color: #cc0000;
-        margin: 0;
     }
 }
 
@@ -219,8 +332,8 @@ body
     }
 }
 
-.main {
-
+.main
+{
     @media @phone-strict
     {
         background: #2173bd;
@@ -238,29 +351,28 @@ body
 
     &__breadcrumbs
     {
-        display: inline-block;
-
         font-family: Roboto;
         font-size: 14px;
         color: #cc0000;
         font-weight: bold;
 
-        margin-top: 4px;
+        padding-top: 4px;
         margin-bottom: 4px;
+
 
         @media @phone-strict
         {
-
+            margin-left: 4px;
         }
 
         @media @tablet-strict
         {
-
+            margin-left: 16px;
         }
 
         @media @desktop
         {
-            margin-left: 40%;
+            margin-left: 10%;
         }
 
         &_link
@@ -284,24 +396,19 @@ body
 
     &__product
     {
-        display: block;
-
-        margin-left: auto;
-        margin-right: auto;
-
         @media @phone-strict
         {
-
+            display: block;
         }
 
         @media @tablet-strict
         {
-
+            display: block;
         }
 
-        @media @desktop
-        {
+        @media @desktop {
             display: flex;
+            flex-wrap: nowrap;
             justify-content: center;
         }
 

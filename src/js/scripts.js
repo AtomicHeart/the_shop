@@ -1,13 +1,30 @@
 var sizeStrings = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
 var colorCodes = ["ffffff", "ffff00", "22aa44"];
 var colorNames = ["white", "yellow", "green"];
+var currencySigns = ["₽", "$", "€"];
 
 var currentColor = -1;
 var currentSize = -1;
 var images_dir = "img/tshirts";
 
-function initProduct(sizes, colors, category, product_img_prefix)
+function initProduct(sizes, colors, category, product_img_prefix, name, composition, production, value, currency)
 {
+    var product_name = document.getElementById("name");
+    product_name.innerHTML = name;
+
+    var product_composition = document.getElementById("composition");
+    product_composition.innerHTML = composition;
+
+    var product_production = document.getElementById("production");
+    product_production.innerHTML = production;
+
+    var product_value = document.getElementById("value");
+    product_value.innerHTML = value;
+
+    var product_currency = document.getElementById("currency");
+    product_currency.innerHTML = currencySigns[currency];
+
+
     var sizeList = document.getElementById("sizeList");
 
     for(let i = 0; i < sizes.length; i++)
@@ -72,7 +89,7 @@ function initProduct(sizes, colors, category, product_img_prefix)
         }
     }
 
-    let preview_image = document.getElementById("preview_image");
+    var preview_image = document.getElementById("preview_image");
     preview_image.setAttribute("src", images_dir + "/" + product_img_prefix + "_" + colorNames[colors[0]] + ".jpg");
 
     var breadcrumbs = document.getElementById("breadcrumbs");
@@ -81,7 +98,7 @@ function initProduct(sizes, colors, category, product_img_prefix)
     {
         let item = document.createElement('a');
         item.setAttribute("class", "main__breadcrumbs_link");
-        item.setAttribute("href", "localhost:30000");
+        item.setAttribute("href", "/");
         item.innerHTML = category[i];
         breadcrumbs.appendChild(item);
         breadcrumbs.innerHTML += " / ";
@@ -128,4 +145,14 @@ favoriteButton.onclick = function()
     }
 }
 
-initProduct([0, 2, 3, 4], [0, 1, 2], ["LISP", "Одежда", "Футболки"], "tshirt");
+initProduct(
+    [0, 2, 3, 4],
+    [0, 1, 2],
+    ["LISP", "Одежда", "Футболки"],
+    "tshirt",
+    "Футболка Alien techology",
+    "Состав: 100% хлопок, динамическая типизация, польстая нотация",
+    "Производство: Россия",
+    1500,
+    1
+);

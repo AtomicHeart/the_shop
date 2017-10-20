@@ -15,6 +15,11 @@ gulp.task('img', () => {
         .pipe(gulp.dest('./dist/img'));
 });
 
+gulp.task('font', () => {
+    gulp.src('src/font/**/*.*')
+        .pipe(gulp.dest('./dist/font'));
+});
+
 gulp.task('js', () => {
     gulp.src('src/js/**/*.*')
         .pipe(gulp.dest('./dist/js'));
@@ -32,7 +37,6 @@ gulp.task('livereload', () => {
         server: {
             baseDir: 'dist'
         },
-        browser: 'google chrome',
         files: [
             'dist/**/*.*'
         ]
@@ -46,5 +50,5 @@ gulp.task('watch', () => {
     gulp.watch('src/js/**/*.*', ['js']);
 });
 
-gulp.task('default', ['styles', 'html', 'img', 'js', 'livereload', 'watch']);
-gulp.task('prod', ['styles', 'html', 'img', 'js']);
+gulp.task('default', ['styles', 'html', 'img', 'font', 'js', 'livereload', 'watch']);
+gulp.task('prod', ['styles', 'html', 'img', 'font', 'js']);

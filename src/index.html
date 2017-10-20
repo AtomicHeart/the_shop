@@ -12,7 +12,7 @@
 <body>
 
     <header class="header">
-        <a class = "header__shop_logo_link" href="//oggettoweb.com">
+        <a class = "header__shop_logo_link" href="/">
             <svg class = "header__shop_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145.2 31.8">
                 <title>shop_logo</title>
                 <polygon points="0 6 11 6 1.9 24.8 6.7 24.8 16 5.6 16 1.9 0 1.9 0 6"/>
@@ -39,19 +39,19 @@
 
         <ul  class="menu__list">
             <li class="menu__list_item">
-                <a class="menu__list_current_link" href="localhost:30000">LISP</a>
+                <a class="menu__list_current_link" href="/">LISP</a>
             </li>
             <li class="menu__list_item">
-                <a class="menu__list_link" href="localhost:30000">OCaml</a>
+                <a class="menu__list_link" href="/">OCaml</a>
             </li>
             <li class="menu__list_item">
-                <a class="menu__list_link" href="localhost:30000">JavaScript</a>
+                <a class="menu__list_link" href="/">JavaScript</a>
             </li>
             <li class="menu__list_item">
-                <a class="menu__list_link" href="localhost:30000">Python</a>
+                <a class="menu__list_link" href="/">Python</a>
             </li>
             <li class="menu__list_item">
-                <a class="menu__list_link" href="localhost:30000">PHP</a>
+                <a class="menu__list_link" href="/">PHP</a>
             </li>
         </ul>
 
@@ -71,40 +71,40 @@
 
         </div>
         <div class="main__product">
-        <div class="main__product__preview">
-            <img id="preview_image" class="main__product__preview_image">
-        </div>
-        <div class="main__product__info">
-            <div class="main__product__name">
-                Футболка Alien techology
+            <div class="main__product__preview">
+                <img id="preview_image" class="main__product__preview_image">
             </div>
-            <div class="main__product__properties">
-                <span class="main__product__composition">Состав: 100% хлопок, динамическая типизация, польстая нотация</span><br>
-                <span class="main__product__production">Производство: Россия</span>
-            </div>
+            <div class="main__product__info">
+                <div id="name" class="main__product__name">
+                </div>
+                <div class="main__product__properties">
+                    <span id="composition" class="main__product__composition"></span><br>
+                    <span id="production" class="main__product__production"></span>
+                </div>
 
-            <div class="main__product__price">
-                <span class="main__product__price__value">12345</span>
-                <span class="main__product__price__currency">₽</span>
-            </div>
+                <div class="main__product__price">
+                    <span id="value" class="main__product__price__value">12345</span>
+                    <span id="currency" class="main__product__price__currency">₽</span>
+                </div>
 
-            <div class="main__product__size">
-                <span class="main__product__size_title">Размер:</span>
-                <ul id="sizeList" class="main__product__size_list"></ul>
-            </div>
-            <div class="main__product__color">
-                <span class="main__product__color_title">Цвет:</span>
-                <ul id="colorList" class="main__product__color_list"></ul>
-            </div>
+                <div class="main__product__size">
+                    <span class="main__product__size_title">Размер:</span>
+                    <ul id="sizeList" class="main__product__size_list"></ul>
+                </div>
+                <div class="main__product__color">
+                    <span class="main__product__color_title">Цвет:</span>
+                    <ul id="colorList" class="main__product__color_list"></ul>
+                </div>
 
-            <input id="buyButton" type="button" class="main__product__buy_button" value="КУПИТЬ" onclick="buy_buttonPressed();"><br>
+                <input id="buyButton" type="button" class="main__product__buy_button" value="КУПИТЬ" onclick="buy_buttonPressed();"><br>
 
-            <a id="favoriteButton" class="main__product__fav_button">
-                <svg class="main__product__fav_button_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.8 29.8">
-                    <path d="M20.8,1.6a7.1,7.1,0,0,0-5.8,3,7.1,7.1,0,0,0-5.8-3A7.4,7.4,0,0,0,1.8,9C1.8,14.8,15,25.4,15,25.4S28.2,14.8,28.2,9A7.4,7.4,0,0,0,20.8,1.6Zm0,2.6A4.7,4.7,0,0,1,25.5,9c0,2.6-5.2,8.5-10.6,12.9C9.6,17.3,4.4,11.5,4.4,9A4.7,4.7,0,0,1,9.2,4.2c3.2,0,5.8,4,5.8,4s2.5-4,5.8-4"/>
-                </svg>
-                <span class="main__product__fav_button_title noselect">Отложить на потом</span>
-            </a>
+                <a id="favoriteButton" class="main__product__fav_button">
+                    <svg class="main__product__fav_button_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.8 29.8">
+                        <path d="M20.8,1.6a7.1,7.1,0,0,0-5.8,3,7.1,7.1,0,0,0-5.8-3A7.4,7.4,0,0,0,1.8,9C1.8,14.8,15,25.4,15,25.4S28.2,14.8,28.2,9A7.4,7.4,0,0,0,20.8,1.6Zm0,2.6A4.7,4.7,0,0,1,25.5,9c0,2.6-5.2,8.5-10.6,12.9C9.6,17.3,4.4,11.5,4.4,9A4.7,4.7,0,0,1,9.2,4.2c3.2,0,5.8,4,5.8,4s2.5-4,5.8-4"/>
+                    </svg>
+                    <span class="main__product__fav_button_title noselect">Отложить на потом</span>
+                </a>
+            </div>
         </div>
     </div>
     <footer class="footer">
