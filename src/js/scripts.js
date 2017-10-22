@@ -33,7 +33,7 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
         item.innerHTML = sizeStrings[sizes[i]];
         sizeList.appendChild(item);
         item.setAttribute("id", "size_" + sizes[i]);
-        item.setAttribute("class", "main__product__size_list_item");
+        item.setAttribute("class", "size__list__item");
         item.setAttribute("product_size", sizes[i]);
         item.onclick = function()
         {
@@ -63,7 +63,7 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
         let item = document.createElement('li');
         item.setAttribute("style", "background-color: #" + colorCodes[colors[i]]);
         item.setAttribute("id", "color_" + colors[i]);
-        item.setAttribute("class", "main__product__color_list_item");
+        item.setAttribute("class", "color__list__item");
         item.setAttribute("product_color", colors[i]);
         colorList.appendChild(item);
         item.onclick = function(parent = item)
@@ -83,13 +83,13 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
                 item.setAttribute("current", "");
                 currentColor = item.getAttribute("product_color");
 
-                let preview_image = document.getElementById("preview_image");
+                let preview_image = document.getElementById("previewImage");
                 preview_image.setAttribute("src", images_dir + "/" + product_img_prefix + "_" + colorNames[currentColor] + ".jpg");
             }
         }
     }
 
-    var preview_image = document.getElementById("preview_image");
+    var preview_image = document.getElementById("previewImage");
     preview_image.setAttribute("src", images_dir + "/" + product_img_prefix + "_" + colorNames[colors[0]] + ".jpg");
 
     var breadcrumbs = document.getElementById("breadcrumbs");
@@ -97,7 +97,7 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
     for(let i = 0; i < (category.length - 1); i++)
     {
         let item = document.createElement('a');
-        item.setAttribute("class", "main__breadcrumbs_link");
+        item.setAttribute("class", "breadcrumbs__link");
         item.setAttribute("href", "/");
         item.innerHTML = category[i];
         breadcrumbs.appendChild(item);
@@ -105,7 +105,7 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
     }
 
     let item = document.createElement('a');
-    item.setAttribute("class", "main__breadcrumbs_current_link");
+    item.setAttribute("class", "breadcrumbs__link current");
     item.innerHTML = category[category.length - 1];
     breadcrumbs.appendChild(item);
 }
@@ -154,5 +154,5 @@ initProduct(
     "Состав: 100% хлопок, динамическая типизация, польстая нотация",
     "Производство: Россия",
     1500,
-    1
+    0
 );
