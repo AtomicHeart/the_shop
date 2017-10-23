@@ -256,15 +256,17 @@ body {
 }
 
 .main {
-    @media @phone-strict {
-        background: #2173bd;
-    }
-    @media @tablet-strict {
-        background: #4ebd14;
-    }
-    @media @desktop {
-        background: @primary_background_color;
-    }
+    //@media @phone-strict {
+    //    background: #2173bd;
+    //}
+    //@media @tablet-strict {
+    //    background: #4ebd14;
+    //}
+    //@media @desktop {
+    //    background: @primary_background_color;
+    //}
+
+    background: @primary_background_color;
 
     &__container
     {
@@ -343,13 +345,11 @@ body {
         margin-left: 4px;
         margin-right: 4px;
         margin-top: 4px;
-        margin-bottom: 4px;
     }
     @media @tablet-strict {
         padding-left: 16px;
         padding-right: 16px;
         margin-top: 16px;
-        margin-bottom: 16px;
     }
     @media @desktop {
         padding-left: 32px;
@@ -517,17 +517,20 @@ body {
 
 .footer
 {
+    border: 1px solid @menu_border_color;
     &__container
     {
         .container;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
-        padding-top: 48px;
+        align-content: flex-start;
     }
 
     &__title
     {
         font-weight: bold;
+        font-size: 16px;
     }
 
     &__list
@@ -539,7 +542,37 @@ body {
         &__item
         {
             line-height: 24px;
+
+            &__link
+            {
+                text-decoration: none;
+                color: black;
+
+                &:hover
+                {
+                    color: @primary_color;
+                }
+            }
         }
+    }
+
+    &__endline
+    {
+        width: 100%;
+        margin-top: 32px;
+
+        border-color: @menu_border_color;
+        border-width: 1px;
+    }
+
+    &__end
+    {
+        margin-top: 32px;
+        padding-bottom: 32px;
+
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 24px;
     }
 }
 
@@ -549,12 +582,15 @@ body {
     font-size: 14px;
     color: black;
 
+    padding-right: 16px;
+    padding-top: 59px;
+    flex-shrink: 0;
     &__part1
     {
         vertical-align: top;
         display: inline-block;
-        padding-top: 16px;
         padding-right: 32px;
+        padding-top: 16px;
     }
 
     &__part2
@@ -571,13 +607,15 @@ body {
     font-size: 14px;
     color: black;
 
-
+    padding-right: 16px;
+    padding-top: 59px;
+    flex-shrink: 0;
     &__part1
     {
         vertical-align: top;
         display: inline-block;
-        padding-top: 16px;
         padding-right: 32px;
+        padding-top: 16px;
     }
 
     &__part2
@@ -595,20 +633,34 @@ body {
     color: black;
 
     display: inline-block;
-    padding-top: 16px;
+    padding-right: 16px;
+    padding-top: 59px;
 
     flex-shrink: 0;
-    &__list {
+    &__list
+    {
         list-style: none;
         padding: 0;
+        margin: 0;
         //font-size: 0;
-        &__item {
+        &__item
+        {
             line-height: 24px;
             height: 24px;
             margin: 0;
-            padding: 0;
+            padding-bottom: 16px;
 
-            padding-top: 8px;
+            &__link
+            {
+                text-decoration: none;
+                color: black;
+                &:hover
+                {
+                    color: @primary_color;
+                    fill: @primary_color;
+                }
+            }
+
             & .list_image_container
             {
                 display: inline-block;
@@ -617,11 +669,13 @@ body {
                 vertical-align: middle;
 
                 padding-right: 10px;
-                & .image_container {
+                & .image_container
+                {
                     height: 24px;
                     float: right;
                     text-align: right;
-                    & .image {
+                    & .image
+                    {
                         height: 24px;
                     }
                 }
@@ -633,13 +687,22 @@ body {
 .social
 {
     display: inline-block;
-    padding-top: 16px;
-
-    &__list {
+    flex-shrink: 0;
+    padding-top: 59px;
+    &__list
+    {
         list-style: none;
         padding: 0;
-        &__item {
-            padding-top: 8px;
+        margin: 0;
+        &__item
+        {
+            padding-bottom: 16px;
+
+            &__link:hover
+            {
+                fill: #c00;
+            }
+
             & .image_container
             {
                 display: inline-block;
@@ -650,7 +713,6 @@ body {
                     height: 24px;
                     width: 24px;
                 }
-
             }
         }
     }
