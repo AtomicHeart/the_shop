@@ -1,31 +1,30 @@
-var sizeStrings = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
-var colorCodes = ["ffffff", "ffff00", "22aa44"];
-var colorNames = ["white", "yellow", "green"];
-var currencySigns = ["₽", "$", "€"];
+const sizeStrings = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
+const colorCodes = ["ffffff", "ffff00", "22aa44"];
+const colorNames = ["white", "yellow", "green"];
+const currencySigns = ["₽", "$", "€"];
 
-var currentColor = -1;
-var currentSize = -1;
-var images_dir = "img/tshirts";
+let currentColor = -1;
+let currentSize = -1;
+const images_dir = "img/tshirts";
 
 function initProduct(sizes, colors, category, product_img_prefix, name, composition, production, value, currency)
 {
-    var product_name = document.getElementById("name");
+    let product_name = document.getElementById("name");
     product_name.innerHTML = name;
 
-    var product_composition = document.getElementById("composition");
+    let product_composition = document.getElementById("composition");
     product_composition.innerHTML = composition;
 
-    var product_production = document.getElementById("production");
+    let product_production = document.getElementById("production");
     product_production.innerHTML = production;
 
-    var product_value = document.getElementById("value");
+    let product_value = document.getElementById("value");
     product_value.innerHTML = value;
 
-    var product_currency = document.getElementById("currency");
+    let product_currency = document.getElementById("currency");
     product_currency.innerHTML = currencySigns[currency];
 
-
-    var sizeList = document.getElementById("sizeList");
+    let sizeList = document.getElementById("sizeList");
 
     for(let i = 0; i < sizes.length; i++)
     {
@@ -39,24 +38,24 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
         {
             if (item.hasAttribute("current"))
             {
-                item.removeAttribute("current", "");
+                item.removeAttribute("current");
                 currentSize = -1;
             }
             else
             {
-                if(currentSize!=-1)
+                if(currentSize != -1)
                 {
                     let currentItem = document.getElementById("size_" + currentSize);
                     currentItem.removeAttribute("current");
                 }
                 item.setAttribute("current", "");
-                currentSize = item.getAttribute("product_size");
+                currentSize = parseInt(item.getAttribute("product_size"), 10);
             }
         }
     }
 
 
-    var colorList = document.getElementById("colorList");
+    let colorList = document.getElementById("colorList");
 
     for(let i = 0; i < colors.length; i++)
     {
@@ -66,22 +65,22 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
         item.setAttribute("class", "color__list__item");
         item.setAttribute("product_color", colors[i]);
         colorList.appendChild(item);
-        item.onclick = function(parent = item)
+        item.onclick = function()
         {
             if (item.hasAttribute("current"))
             {
-                item.removeAttribute("current", "");
+                item.removeAttribute("current");
                 currentColor = -1;
             }
             else
             {
-                if(currentColor!=-1)
+                if(currentColor != -1)
                 {
                     let currentItem = document.getElementById("color_" + currentColor);
                     currentItem.removeAttribute("current");
                 }
                 item.setAttribute("current", "");
-                currentColor = item.getAttribute("product_color");
+                currentColor = parseInt(item.getAttribute("product_color"), 10);
 
                 let preview_image = document.getElementById("previewImage");
                 preview_image.setAttribute("src", images_dir + "/" + product_img_prefix + "_" + colorNames[currentColor] + ".jpg");
@@ -89,10 +88,10 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
         }
     }
 
-    var preview_image = document.getElementById("previewImage");
+    let preview_image = document.getElementById("previewImage");
     preview_image.setAttribute("src", images_dir + "/" + product_img_prefix + "_" + colorNames[colors[0]] + ".jpg");
 
-    var breadcrumbs = document.getElementById("breadcrumbs");
+    let breadcrumbs = document.getElementById("breadcrumbs");
 
     for(let i = 0; i < (category.length - 1); i++)
     {
@@ -110,13 +109,13 @@ function initProduct(sizes, colors, category, product_img_prefix, name, composit
     breadcrumbs.appendChild(item);
 }
 
-var buyButton = document.getElementById("buyButton");
+let buyButton = document.getElementById("buyButton");
 
 buyButton.onclick = function()
 {
-    if(currentColor==-1)
+    if(currentColor == -1)
     {
-        if(currentSize==-1)
+        if(currentSize == -1)
         {
             alert("Вы не выбрали цвет и размер!");
         }
@@ -125,13 +124,13 @@ buyButton.onclick = function()
             alert("Вы не выбрали цвет!");
         }
     }
-    else if(currentSize==-1)
+    else if(currentSize == -1)
     {
         alert("Вы не выбрали размер!");
     }
 }
 
-var favoriteButton = document.getElementById("favoriteButton");
+let favoriteButton = document.getElementById("favoriteButton");
 
 favoriteButton.onclick = function()
 {

@@ -4,16 +4,26 @@
   "description": "Simple project template with Webpack/WDS for static resources and PHP with built in server for templating.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
-    "prod": "gulp prod"
+    "prod": "gulp prod",
+    "lint": "eslint src && stylelint src/less/*.less",
+    "precommit": "npm run lint"
   },
   "author": "Andrey Miskov",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.11",
     "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "gulp-autoprefixer": "^4.0.0",
+    "gulp-ejs": "^3.0.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-util": "^3.0.8",
+    "husky": "^0.14.3",
     "stylelint": "^7.13.0"
   },
   "dependencies": {

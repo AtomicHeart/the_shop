@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>7h3_5h0p</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -44,21 +44,23 @@
     <div class="menu">
         <div class="menu__container">
             <ul class="navigation">
-                <li class="navigation__item">
-                    <a class="navigation__item__link current">LISP</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__item__link" href="/">OCaml</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__item__link" href="/">JavaScript</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__item__link" href="/">Python</a>
-                </li>
-                <li class="navigation__item">
-                    <a class="navigation__item__link" href="/">PHP</a>
-                </li>
+
+                <%
+                const navigationLabels = ["LISP", "OCaml", "JavaScript", "Python", "PHP"];
+                const current = 0;
+                for(let index in navigationLabels) {
+                %>
+                    <li class="navigation__item">
+                        <% if(index == current){ %>
+                        <a class="navigation__item__link current">
+                            <%}
+                            else { %>
+                            <a class="navigation__item__link">
+                                <% } %>
+                            <%= navigationLabels[index] %>
+                        </a>
+                    </li>
+                <% } %>
             </ul>
 
             <div class="search_form">
@@ -121,18 +123,22 @@
                 <div class="footer__title">Сервис и поддержка</div>
                 <div class="support__part1">
                     <ul class="footer__list">
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Как сделать заказ</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Возврат товара</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Публичная офёрта</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Доставка</a></li>
+
+                        <%const supportPart1Labels = ["Как сделать заказ", "Возврат товара", "Публичная офёрта", "Доставка"];
+                        for(let item of supportPart1Labels) { %>
+                        <li class="footer__list__item"><a class="footer__list__item__link"><%= item %></a></li>
+                        <% } %>
+
                     </ul>
                 </div>
                 <div class="support__part2">
                     <ul class="footer__list">
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Способы оплаты</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Правила продажи</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Возвра денежных средств</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Вопросы и ответы</a></li>
+
+                        <% const supportPart2Labels = ["Способы оплаты", "Правила продажи", "Возвра денежных средств", "Вопросы и ответы"];
+                        for(let item of supportPart2Labels) { %>
+                        <li class="footer__list__item"><a class="footer__list__item__link"><%= item %></a></li>
+                        <% } %>
+
                     </ul>
                 </div>
             </div>
@@ -141,17 +147,22 @@
                 <div class="footer__title">О компании</div>
                 <div class="about__part1">
                     <ul class="footer__list">
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">О нас</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Контакты</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Партнёрам</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Вакансии</a></li>
+
+                        <% const aboutPart1Labels = ["О нас", "Контакты", "Партнёрам", "Вакансии"];
+                        for(let item of aboutPart1Labels) { %>
+                        <li class="footer__list__item"><a class="footer__list__item__link"><%= item %></a></li>
+                        <% } %>
+
                     </ul>
                 </div>
                 <div class="about__part2">
                     <ul class="footer__list">
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Сертификаты</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Преимущества</a></li>
-                        <li class="footer__list__item"><a class="footer__list__item__link" href="/">Наши скидки</a></li>
+
+                        <% const aboutPart2Labels = ["Сертификаты", "Преимущества", "Наши скидки"];
+                                for(let item of aboutPart2Labels) { %>
+                        <li class="footer__list__item"><a class="footer__list__item__link"><%= item %></a></li>
+                        <% } %>
+
                     </ul>
                 </div>
             </div>
@@ -160,9 +171,9 @@
                     <ul class="services__list">
                         <li class="services__list__item">
                             <a class="services__list__item__link" href="/">
-                                <div class="list_image_container">
-                                    <div class="image_container">
-                                        <svg class="image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.9 22.4">
+                                <div class="list_image_block">
+                                    <div class="list_image_block__container">
+                                        <svg class="list_image_block__container__image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.9 22.4">
                                             <path d="M45.8,1.6H18V24H48V1.6ZM20.2,21.8V3.8h9.4v18Zm25.6,0H31.9V3.8H45.8Z" transform="translate(-3.2 -1.6)"/>
                                             <rect width="12.6" height="2.24"/>
                                             <rect x="2.2" y="4.5" width="10.3" height="2.24"/>
@@ -175,9 +186,9 @@
                         </li>
                         <li class="services__list__item">
                             <a class="services__list__item__link" href="/">
-                                <div class="list_image_container">
-                                    <div class="image_container">
-                                        <svg class="image" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.95 26.955" enable-background="new 0 0 29.95 26.955" xml:space="preserve">
+                                <div class="list_image_block">
+                                    <div class="list_image_block__container">
+                                        <svg class="list_image_block__container__image" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.95 26.955" enable-background="new 0 0 29.95 26.955" xml:space="preserve">
                                             <path d="M20.788,1.587c-2.378,0-4.492,1.189-5.813,3.039c-1.321-1.85-3.435-3.039-5.813-3.039 c-4.096,0-7.398,3.303-7.398,7.398c0,5.813,13.211,16.382,13.211,16.382S28.187,14.799,28.187,8.986 C28.187,4.89,24.884,1.587,20.788,1.587z M20.788,4.23c2.642,0,4.756,2.114,4.756,4.756s-5.153,8.455-10.569,12.947 C9.559,17.309,4.406,11.496,4.406,8.986c0-2.642,2.114-4.756,4.756-4.756c3.171,0,5.813,3.963,5.813,3.963S17.485,4.23,20.788,4.23"/>
                                         </svg>
                                     </div>
@@ -187,9 +198,9 @@
                         </li>
                         <li class="services__list__item">
                             <a class="services__list__item__link" href="/">
-                                <div class="list_image_container">
-                                    <div class="image_container">
-                                        <svg class="image" viewBox="0 0 24 24">
+                                <div class="list_image_block">
+                                    <div class="list_image_block__container">
+                                        <svg class="list_image_block__container__image" viewBox="0 0 24 24">
                                             <g><path d="M19.29,3.82V0H5.87V3.84A4.55,4.55,0,0,0,6,12.75a4.44,4.44,0,0,0,.48,1.17,7.14,7.14,0,0,0,5.21,3.4V21H7.21v2h11V21h-4.5V17.29a7.18,7.18,0,0,0,4.95-3.37,4.82,4.82,0,0,0,.48-1.15,4.55,4.55,0,0,0,.15-8.95ZM5.87,10.63a2.55,2.55,0,0,1,0-4.69Zm11.42.95a2.61,2.61,0,0,1-.36,1.32,5.06,5.06,0,0,1-8.71,0,2.61,2.61,0,0,1-.35-1.32V2h9.42Zm2-.92V5.9a2.54,2.54,0,0,1,0,4.76Z"/></g>
                                         </svg>
                                     </div>

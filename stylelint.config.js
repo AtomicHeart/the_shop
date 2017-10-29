@@ -15,7 +15,6 @@ module.exports = {
         'function-max-empty-lines': 0,
         'function-name-case': 'lower',
         'function-parentheses-space-inside': 'never',
-        'function-url-data-uris': 'never',
         'function-whitespace-after': 'always',
 
         // Number
@@ -23,18 +22,14 @@ module.exports = {
 
         // String
         'string-no-newline': true,
-        'string-quotes': 'single',
+        'string-quotes': 'double',
 
         // Length
         'length-zero-no-unit': true,
 
-        // Time
-        'time-no-imperceptible': true,
-
         // Unit
         'unit-blacklist': ['pt'],
         'unit-case': 'lower',
-        'unit-no-unknown': 'true',
 
         // Value
         'value-keyword-case': 'lower',
@@ -59,7 +54,6 @@ module.exports = {
 
         // Declaration block
         'declaration-block-no-duplicate-properties': true,
-        'declaration-block-no-ignored-properties': true,
         'declaration-block-no-redundant-longhand-properties': true,
         'declaration-block-no-shorthand-property-overrides': true,
         'declaration-block-semicolon-newline-after': 'always',
@@ -70,7 +64,6 @@ module.exports = {
         'block-closing-brace-newline-after': 'always',
         'block-closing-brace-newline-before': 'always',
         'block-no-empty': true,
-        'block-no-single-line': true,
         'block-opening-brace-newline-after': 'always',
 
         // Selector
@@ -84,7 +77,6 @@ module.exports = {
         'selector-descendant-combinator-no-non-space': true,
         // 'selector-id-pattern': '', TODO: pattern for camelCase ids
         'selector-max-compound-selectors': 3,
-        'selector-no-empty': true,
         'selector-no-vendor-prefix': true,
         'selector-pseudo-class-case': 'lower',
         'selector-pseudo-class-no-unknown': true,
@@ -99,21 +91,11 @@ module.exports = {
         // Selector list
         'selector-list-comma-newline-after': 'always',
 
-        // Rule
-        'rule-nested-empty-line-before': ['always', {
-            'except': ['first-nested'],
-            'ignore': ['after-comment']
-        }],
-        'rule-non-nested-empty-line-before': ['always', {
-            'except': ['after-single-line-comment']
-        }],
-
         // Media feature
         'media-feature-colon-space-after': 'always',
         'media-feature-colon-space-before': 'never',
         'media-feature-name-case': 'lower',
         'media-feature-name-no-unknown': true,
-        'media-feature-no-missing-punctuation': true,
         'media-feature-parentheses-space-inside': 'never',
         'media-feature-range-operator-space-after': 'always',
         'media-feature-range-operator-space-before': 'always',
