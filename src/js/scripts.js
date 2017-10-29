@@ -1,4 +1,4 @@
-let product = document.getElementById("product-info");
+let product = document.getElementById("buyForm");
 let preview_image = document.getElementById("previewImage");
 
 const images_dir = "img/tshirts";

@@ -1,7 +1,7 @@
 {
-  "name": "static-project-template",
-  "version": "0.0.1",
-  "description": "Simple project template with Webpack/WDS for static resources and PHP with built in server for templating.",
+  "name": "the_shop",
+  "version": "0.3.1",
+  "description": "Educational project oggetto.",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
