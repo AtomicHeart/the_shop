@@ -127,10 +127,7 @@
                             <div class="color__list">
                                 <%
                                 const colorHexCodes = ["ffffff", "ffff00", "22aa44"];
-                                const colorNames = ["white", "yellow", "green"];
                                 const colors = [0, 1, 2];
-                                const images_dir = "img/tshirts";
-                                const product_img_name = "tshirt";
                                 for(let i of colors) { %>
                                     <input class="color__list__radio" type="radio" name="color" id="color_<%= i %>" value="<%= i %>">
                                     <label class="color__list__item" for="color_<%= i %>" style="background-color: #<%= colorHexCodes[i] %>"> </label>
@@ -277,7 +274,7 @@
                 </ul>
             </div>
 
-            <hr class="footer__endline">
+            <div class="footer__endline">
 
             <div class="footer__end">
                 2005-2017 © 7h35h0p.ru - модный интернет магазин одежды, обуви и аксессуаров.<br>

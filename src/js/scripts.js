@@ -1,11 +1,11 @@
-let product = document.getElementById("buyForm");
-let preview_image = document.getElementById("previewImage");
+const buyForm = document.getElementById("buyForm");
+const preview_image = document.getElementById("previewImage");
 
 const colorNames = ["white", "yellow", "green"];
 const images_dir = "img/tshirts";
 const product_img_name = "tshirt";
 
-product.addEventListener("click", (mouseEvent) =>
+buyForm.addEventListener("click", (mouseEvent) =>
 {
     if(mouseEvent.target.getAttribute("name") == "color")
     {
@@ -14,7 +14,7 @@ product.addEventListener("click", (mouseEvent) =>
 }
 );
 
-let favoriteButton = document.getElementById("favoriteButton");
+const favoriteButton = document.getElementById("favoriteButton");
 
 favoriteButton.onclick = function()
 {
