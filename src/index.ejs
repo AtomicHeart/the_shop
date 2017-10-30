@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -63,7 +63,7 @@
                 <% } %>
             </ul>
 
-            <form class="search_form" action="">
+            <form class="search_form" action="search">
                 <input class="search_form__input" type="search" maxlength="42">
                 <button class="search_form__button" type="submit" title="Найти">
                     <svg class="search_form__button__image" version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" >
@@ -88,7 +88,7 @@
             </div>
             <div class="product">
                 <div class="preview">
-                    <img id="previewImage" class="preview__image">
+                    <img id="previewImage" class="preview__image" alt="" src="img/tshirts/tshirt_white.jpg">
                 </div>
                 <div id="product-info" class="info">
                     <div id="name" class="name">
@@ -108,7 +108,7 @@
                         <span id="currency" class="price__currency">₽</span>
                     </div>
 
-                    <form id="buyForm" class="but_form" action="/" method="post">
+                    <form id="buyForm" class="but_form" action="buy">
 
                         <div class="size">
                             <span class="size__title">Размер:</span>
@@ -132,7 +132,7 @@
                                 const images_dir = "img/tshirts";
                                 const product_img_name = "tshirt";
                                 for(let i of colors) { %>
-                                    <input class="color__list__radio" type="radio" name="color" id="color_<%= i %>" value="<%= i %>" img-path="<%= images_dir + "/" + product_img_name + "_" + colorNames[i] + ".jpg" %>">
+                                    <input class="color__list__radio" type="radio" name="color" id="color_<%= i %>" value="<%= i %>">
                                     <label class="color__list__item" for="color_<%= i %>" style="background-color: #<%= colorHexCodes[i] %>"> </label>
                                 <% } %>
                             </div>

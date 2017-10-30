@@ -1,17 +1,15 @@
 let product = document.getElementById("buyForm");
 let preview_image = document.getElementById("previewImage");
 
+const colorNames = ["white", "yellow", "green"];
 const images_dir = "img/tshirts";
 const product_img_name = "tshirt";
-
-
-preview_image.setAttribute("src", images_dir + "/" + product_img_name + "_white.jpg");
 
 product.addEventListener("click", (mouseEvent) =>
 {
     if(mouseEvent.target.getAttribute("name") == "color")
     {
-        preview_image.setAttribute("src", mouseEvent.target.getAttribute("img-path"));
+        preview_image.setAttribute("src", images_dir + "/" + product_img_name + "_" + colorNames[mouseEvent.target.getAttribute("value")] + ".jpg");
     }
 }
 );
