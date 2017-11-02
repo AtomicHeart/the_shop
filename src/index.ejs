@@ -65,7 +65,7 @@
         <div class="main__container">
             <div id="breadcrumbs" class="breadcrumbs">
                 <%
-                let breadcrumps = ["LISP", "Одежда", "Футболки"];
+                const breadcrumps = ["LISP", "Одежда", "Футболки"];
 
                 for(let i = 0; i < breadcrumps.length - 1; i++)
                 {%>
@@ -140,7 +140,8 @@
                 <div class="support-part1">
                     <ul class="support-part2__list footer__list">
 
-                        <%const supportPart1Labels = ["Как сделать заказ", "Возврат товара", "Публичная офёрта", "Доставка"];
+                        <%
+                        const supportPart1Labels = ["Как сделать заказ", "Возврат товара", "Публичная офёрта", "Доставка"];
                         for(let item of supportPart1Labels) { %>
                         <li class="footer__item">
                             <a class="footer__link" href="">
@@ -154,7 +155,8 @@
                 <div class="support-part2">
                     <ul class="support-part2__list footer__list">
 
-                        <% const supportPart2Labels = ["Способы оплаты", "Правила продажи", "Возвра денежных средств", "Вопросы и ответы"];
+                        <%
+                        const supportPart2Labels = ["Способы оплаты", "Правила продажи", "Возвра денежных средств", "Вопросы и ответы"];
                         for(let item of supportPart2Labels) { %>
                         <li class="footer__item">
                             <a class="footer__link" href="">
@@ -172,7 +174,8 @@
                 <div class="about-part1">
                     <ul class="about-part1__list footer__list">
 
-                        <% const aboutPart1Labels = ["О нас", "Контакты", "Партнёрам", "Вакансии"];
+                        <%
+                        const aboutPart1Labels = ["О нас", "Контакты", "Партнёрам", "Вакансии"];
                         for(let item of aboutPart1Labels) { %>
                         <li class="footer__item">
                             <a class="footer__link" href="">
@@ -186,7 +189,8 @@
                 <div class="about-part2">
                     <ul class="about-part2__list footer__list">
 
-                        <% const aboutPart2Labels = ["Сертификаты", "Преимущества", "Наши скидки"];
+                        <%
+                        const aboutPart2Labels = ["Сертификаты", "Преимущества", "Наши скидки"];
                                 for(let item of aboutPart2Labels) { %>
                         <li class="footer__item">
                             <a class="footer__link" href="">
