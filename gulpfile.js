@@ -7,6 +7,7 @@ const ejs           = require('gulp-ejs');
 const gutil         = require('gulp-util');
 const sourcemaps    = require('gulp-sourcemaps');
 const imagemin      = require('gulp-imagemin');
+const include       = require('gulp-include');
 
 gulp.task('styles', () => {
     gulp.src('src/less/main.less')
@@ -33,6 +34,7 @@ gulp.task('js', () => {
 gulp.task('html', () => {
     gulp.src('src/index.ejs')
     .pipe(ejs().on('error', gutil.log))
+    .pipe(include()).on('error', console.log)
     .pipe(rename('index.html'))
         .pipe(gulp.dest('./dist'));
 });

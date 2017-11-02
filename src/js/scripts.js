@@ -1,29 +1,23 @@
 const buyForm = document.getElementById("buyForm");
-const preview_image = document.getElementById("previewImage");
-
+const previewImage = document.getElementById("previewImage");
 const colorNames = ["white", "yellow", "green"];
-const images_dir = "img/tshirts";
-const product_img_name = "tshirt";
+const imagesDir = "img/tshirts";
+const productImgName = "tshirt";
 
-buyForm.addEventListener("click", (mouseEvent) =>
-{
-    if(mouseEvent.target.getAttribute("name") == "color")
-    {
-        preview_image.setAttribute("src", images_dir + "/" + product_img_name + "_" + colorNames[mouseEvent.target.getAttribute("value")] + ".jpg");
+buyForm.addEventListener("click", (mouseEvent) => {
+    if(mouseEvent.target.getAttribute("name") === "color") {
+        previewImage.setAttribute("src", imagesDir + "/" + productImgName + "_" + colorNames[mouseEvent.target.getAttribute("value")] + ".jpg");
     }
 }
 );
 
 const favoriteButton = document.getElementById("favoriteButton");
 
-favoriteButton.onclick = function()
-{
-    if(favoriteButton.hasAttribute("favorite"))
-    {
+favoriteButton.addEventListener("click", () => {
+    if (favoriteButton.hasAttribute("favorite")) {
         favoriteButton.removeAttribute("favorite");
-    }
-    else
-    {
+    } else {
         favoriteButton.setAttribute("favorite", "");
     }
-};
+}
+);
