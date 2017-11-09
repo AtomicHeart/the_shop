@@ -33,19 +33,17 @@
             <ul class="navigation">
 
                 <%
-                const navigationLabels = ["LISP", "OCaml", "JavaScript", "Python", "PHP"];
-                const current = 0;
-                for(let index in navigationLabels) {
+                for(let index in navigation.labels) {
                 %>
                     <li class="navigation__item">
-                        <% if(index == current){ %>
+                        <% if(index == navigation.current){ %>
                         <a class="navigation__link current">
-                            <%= navigationLabels[index] %>
+                            <%= navigation.labels[index] %>
                         </a>
                             <%}
                             else { %>
                             <a class="navigation__link" href="/">
-                                <%= navigationLabels[index] %>
+                                <%= navigation.labels[index] %>
                             </a>
                         <% } %>
                     </li>
@@ -65,8 +63,6 @@
         <div class="main__container">
             <div id="breadcrumbs" class="breadcrumbs">
                 <%
-                const breadcrumps = ["LISP", "Одежда", "Футболки"];
-
                 for(let i = 0; i < breadcrumps.length - 1; i++)
                 {%>
                     <a class="breadcrumbs__link" href="#"><%= breadcrumps[i] %></a> /
@@ -84,7 +80,7 @@
                     <div class="properties">
                         <div id="composition" class="properties__composition">
                             Состав: 100% хлопок, динамическая типизация, польстая нотация
-                        </div><br>
+                        </div>
                         <div id="production" class="properties__production">
                             Производство: Россия
                         </div>
@@ -101,11 +97,9 @@
                             <span class="size__title">Размер:</span>
                             <div class="size-list">
                                 <%
-                                const sizeStrings = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
-                                const sizes = [0, 1, 2, 3, 4, 5, 6];
-                                for(let i of sizes) { %>
+                                for(let i of size.current) { %>
                                 <input class="size-list__radio" type="radio" name="size" id="size_<%= i %>" value="<%= i %>">
-                                <label class="size-list__item" for="size_<%= i %>"> <%= sizeStrings[i] %> </label>
+                                <label class="size-list__item" for="size_<%= i %>"> <%= size.labels[i] %> </label>
                                 <% } %>
                             </div>
                         </div>
@@ -113,11 +107,9 @@
                             <span class="color__title">Цвет:</span>
                             <div class="color-list">
                                 <%
-                                const colorHexCodes = ["ffffff", "ffff00", "22aa44"];
-                                const colors = [0, 1, 2];
-                                for(let i of colors) { %>
+                                for(let i of color.current) { %>
                                     <input class="color-list__radio" type="radio" name="color" id="color_<%= i %>" value="<%= i %>">
-                                    <label class="color-list__item" for="color_<%= i %>" style="background-color: #<%= colorHexCodes[i] %>"> </label>
+                                    <label class="color-list__item" for="color_<%= i %>" style="background-color: #<%= color.hexCodes[i] %>"> </label>
                                 <% } %>
                             </div>
                         </div>
@@ -125,7 +117,7 @@
                         <input id="buyButton" type="submit" class="buy-button" value="Купить" ><br>
                     </form>
 
-                    <a id="favoriteButton" class="favorite-button noselect" href="#">
+                    <a id="favoriteButton" class="favorite-button noselect">
                         <!--=include img/icons/filled_heart.svg -->
                         Отложить на потом
                     </a>
@@ -141,8 +133,7 @@
                     <ul class="support-part2__list footer__list">
 
                         <%
-                        const supportPart1Labels = ["Как сделать заказ", "Возврат товара", "Публичная офёрта", "Доставка"];
-                        for(let item of supportPart1Labels) { %>
+                        for(let item of support.labels1) { %>
                         <li class="footer__item">
                             <a class="footer__link" href="">
                                 <%= item %>
@@ -156,8 +147,7 @@
                     <ul class="support-part2__list footer__list">
 
                         <%
-                        const supportPart2Labels = ["Способы оплаты", "Правила продажи", "Возвра денежных средств", "Вопросы и ответы"];
-                        for(let item of supportPart2Labels) { %>
+                        for(let item of support.labels2) { %>
                         <li class="footer__item">
                             <a class="footer__link" href="">
                                 <%= item %>
@@ -175,8 +165,7 @@
                     <ul class="about-part1__list footer__list">
 
                         <%
-                        const aboutPart1Labels = ["О нас", "Контакты", "Партнёрам", "Вакансии"];
-                        for(let item of aboutPart1Labels) { %>
+                        for(let item of about.labels1) { %>
                         <li class="footer__item">
                             <a class="footer__link" href="">
                                 <%= item %>
@@ -190,8 +179,7 @@
                     <ul class="about-part2__list footer__list">
 
                         <%
-                        const aboutPart2Labels = ["Сертификаты", "Преимущества", "Наши скидки"];
-                                for(let item of aboutPart2Labels) { %>
+                        for(let item of about.labels2) { %>
                         <li class="footer__item">
                             <a class="footer__link" href="">
                                 <%= item %>

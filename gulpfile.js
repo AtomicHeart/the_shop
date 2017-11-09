@@ -10,9 +10,9 @@ const imagemin      = require('gulp-imagemin');
 const include       = require('gulp-include');
 const gulpIf        = require('gulp-if');
 
-const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+const data          = require('./src/data');
 
-console.log(process.env.NODE_ENV);
+const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 gulp.task('styles', () => {
     gulp.src('src/less/main.less')
@@ -25,7 +25,7 @@ gulp.task('styles', () => {
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
-        .pipe(gulpIf(isDevelopment, imagemin()))
+        .pipe(gulpIf(!isDevelopment, imagemin()))
         .pipe(gulp.dest('./dist/img'));
 });
 
@@ -38,7 +38,7 @@ gulp.task('js', () => {
 
 gulp.task('html', () => {
     gulp.src('src/index.ejs')
-    .pipe(ejs().on('error', gutil.log))
+    .pipe(ejs(data).on('error', gutil.log))
     .pipe(include()).on('error', console.log)
     .pipe(rename('index.html'))
         .pipe(gulp.dest('./dist'));

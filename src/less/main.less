@@ -60,18 +60,10 @@ body {
 }
 
 .header {
-    height: @header-height;
+    height: @header-height / 2;
     background-color: @primary-background-color;
 
-    @media @phone-strict {
-        height: @header-height / 2;
-    }
-
-    @media @tablet-strict {
-        height: @header-height;
-    }
-
-    @media @desktop {
+    @media @tablet {
         height: @header-height;
     }
 
@@ -103,20 +95,10 @@ body {
     margin: 0 auto;
 
     .centered_vertically_block;
-    height: @header-height - 30px;
-    width: @header-height - 30px;
+    height: @header-height / 2 - 10px;
+    width: @header-height / 2 - 10px;
 
-    @media @phone-strict {
-        height: @header-height / 2 - 10px;
-        width: @header-height / 2 - 10px;
-    }
-
-    @media @tablet-strict {
-        height: @header-height / 2;
-        width: @header-height / 2;
-    }
-
-    @media @desktop {
+    @media @tablet {
         height: @header-height / 2;
         width: @header-height / 2;
     }
@@ -133,30 +115,25 @@ body {
 
 .phone {
     font-weight: bold;
-    line-height: @header-height;
     color: @primary-color;
-    margin: 0;
     float: right;
-    @media @phone-strict {
-        font-size: 14px;
-        line-height: @header-height / 2;
-    }
-    @media @desktop {
+    font-size: 14px;
+    line-height: @header-height / 2;
+
+    @media @tablet {
         font-size: 24px;
+        line-height: @header-height;
     }
 }
 
 .menu {
-    height: @menu-height;
     border-bottom: 1px solid @block-border-color;
     border-top: 1px solid @block-border-color;
     background-color: @secondary-background-color;
+    height: 2 * @menu-height;
 
-    @media @phone-strict {
-        height: 2 * @menu-height;
-    }
-    @media @tablet-strict {
-        height: @menu-height * 2;
+    @media @desktop {
+        height: @menu-height;
     }
 
     &__container {
@@ -260,6 +237,10 @@ body {
 
     &__container {
         .container;
+
+        @media @desktop {
+            padding-bottom: 50px;
+        }
     }
 }
 
@@ -290,57 +271,47 @@ body {
 }
 
 .product {
-    @media @phone-strict {
-        display: block;
-    }
-    @media @tablet-strict {
-        display: block;
-    }
+    display: block;
+
     @media @desktop {
         display: flex;
         flex-wrap: nowrap;
-        justify-content: center;
+        justify-content: flex-start;
     }
 }
 
 .preview {
-    &__image {
-        max-width: 100%;
+    margin-top: 19px;
+    margin-bottom: 32px;
+    width: 100%;
+
+    @media @desktop {
+        margin-right: 32px;
+        width: 50%;
+        min-width: 50%;
     }
 
-    @media @phone-strict {
-        padding-top: 19px;
-        padding-bottom: 32px;
-        width: 100%;
-    }
-    @media @tablet-strict {
-        width: 100%;
-    }
-    @media @desktop {
-        padding-right: 32px;
-        padding-top: 19px;
-        padding-bottom: 32px;
-        width: 50%;
+    &__image {
+        max-width: 100%;
     }
 }
 
 .info {
-    vertical-align: top;
-    @media @phone-strict {
-        margin-left: 4px;
-        margin-right: 4px;
-        margin-top: 4px;
-    }
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+
     @media @tablet-strict {
-        padding-left: 16px;
-        padding-right: 16px;
+        margin-left: 16px;
+        margin-right: 16px;
         margin-top: 16px;
     }
+
     @media @desktop {
-        padding-left: 32px;
-        padding-top: 19px;
-        padding-bottom: 32px;
-        width: 50%;
+        margin-left: 32px;
+        margin-top: 19px;
+        margin-bottom: 32px;
+        max-width: 50%;
     }
 }
 
@@ -354,26 +325,27 @@ body {
     line-height: 16px;
 
     &__composition {
-        padding-top: 19px;
-        margin: 0;
+        margin-top: 19px;
+    }
+
+    &__production {
+        margin-top: 19px;
     }
 }
 
 .price {
-    padding-top: 16px;
+    margin-top: 16px;
     font-size: 32px;
     font-weight: 700;
     color: #ce0000;
 }
 
 .color {
-    padding-top: 30px;
+    margin-top: 30px;
     font-size: 0;
 
     &__title {
         font-size: 16px;
-        padding: 0;
-        margin: 0;
     }
 }
 
@@ -413,7 +385,7 @@ body {
 }
 
 .size {
-    padding-top: 30px;
+    margin-top: 30px;
     font-size: 0;
 
     &__title {
@@ -423,10 +395,8 @@ body {
 
 .size-list {
     list-style: none;
-    padding: 0;
 
     &__radio {
-        width: 0;
         display: none;
     }
 
@@ -468,9 +438,10 @@ body {
     text-align: center;
     color: @secondary-background-color;
     background-color: @primary-color;
-    border: 0;
+    border: none;
     box-shadow: 0 0 2px @primary-color;
     margin-top: 30px;
+    cursor: pointer;
 
     &:hover {
         transition-duration: .5s;
@@ -484,10 +455,12 @@ body {
     margin-top: 30px;
     color: @favorite-button-color;
     line-height: 24px;
+    text-decoration: underline;
+    cursor: pointer;
 
     & svg {
-        height: 24px;
-        width: 24px;
+        height: 25px;
+        width: 25px;
         padding-right: 4px;
         fill: @favorite-button-color;
     }
@@ -519,6 +492,7 @@ body {
 
 .footer-list-wrapper() {
     display: block;
+
     @media @desktop {
         display: inline-block;
     }
@@ -533,6 +507,7 @@ body {
         flex-wrap: wrap;
         align-content: flex-start;
         justify-content: space-between;
+
         @media @phone-strict {
             padding-top: 19px;
             padding-bottom: 32px;
@@ -540,6 +515,7 @@ body {
             margin-left: 1%;
             width: 98%;
         }
+
         @media @tablet-strict {
             margin-right: 1%;
             margin-left: 1%;
@@ -631,15 +607,15 @@ body {
     padding-top: 59px;
     flex-shrink: 0;
 
-    @media @phone-strict {
-        font-size: 13px;
-    }
-
     &__list {
-        font-size: 14px;
+        font-size: 13px;
         list-style: none;
         padding: 0;
         margin: 0;
+
+        @media @tablet {
+            font-size: 14px;
+        }
     }
 
     &__item {
@@ -654,6 +630,7 @@ body {
         color: black;
         line-height: 24px;
         height: 24px;
+
         &:hover {
             color: @primary-color;
             fill: @primary-color;
