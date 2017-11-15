@@ -10,7 +10,8 @@ const imagemin      = require('gulp-imagemin');
 const include       = require('gulp-include');
 const gulpIf        = require('gulp-if');
 
-const data          = require('./src/data');
+const commonData    = require('./src/common-data');
+const productData   = require('./src/product-data');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
@@ -38,7 +39,7 @@ gulp.task('js', () => {
 
 gulp.task('html', () => {
     gulp.src('src/index.ejs')
-    .pipe(ejs(data).on('error', gutil.log))
+    .pipe(ejs({common: commonData, product: productData}).on('error', gutil.log))
     .pipe(include()).on('error', console.log)
     .pipe(rename('index.html'))
         .pipe(gulp.dest('./dist'));
