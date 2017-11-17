@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7h3_5h0p</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header__container">
+            <div class="shop-logo">
+                <a class="shop-logo__link" href="#">
+                    <!--=include img/the_shop_logo.svg -->
+                </a>
+            </div>
+            <span class="phone">+7 (812) 2•12•85•06</span>
+            <div class="oggetto-logo">
+                <a class = "oggetto-logo__link" href="//oggettoweb.com">
+                    <!--=include img/oggetto_logo.svg -->
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu">
+        <div class="menu__container">
+            <ul class="navigation">
+
+                <%
+                for(let index in common.navigation.labels) {
+                %>
+                    <li class="navigation__item">
+                        <% if(index == product.navigation){ %>
+                        <a class="navigation__link current">
+                            <%= common.navigation.labels[index] %>
+                        </a>
+                            <%}
+                            else { %>
+                            <a class="navigation__link" href="/">
+                                <%= common.navigation.labels[index] %>
+                            </a>
+                        <% } %>
+                    </li>
+                <% } %>
+            </ul>
+
+            <form class="search-form" action="search">
+                <input class="search-form__input" type="search" name="search" maxlength="42">
+                <button class="search-form__button" type="submit" title="Найти">
+                    <!--=include img/icons/search.svg -->
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="main__container">
+            <div id="breadcrumbs" class="breadcrumbs">
+                <%
+                for(let i = 0; i < product.breadcrumps.length - 1; i++)
+                {%>
+                    <a class="breadcrumbs__link" href="#"><%= product.breadcrumps[i] %></a> /
+                <% } %>
+                <a class="breadcrumbs__link current"><%= product.breadcrumps.pop() %></a>
+            </div>
+            <div id="product" class="product">
+                <div class="preview">
+                    <img id="previewImage" class="preview__image" alt="Предпросмотр" src="img/tshirts/tshirt_white.jpg">
+                </div>
+                <div id="productInfo" class="info">
+                    <div id="name" class="name">
+                        <%= product.name %>
+                    </div>
+                    <div class="properties">
+                        <div id="composition" class="properties__composition">
+                            <%= product.composition %>
+                        </div>
+                        <div id="production" class="properties__production">
+                            <%= product.production %>
+                        </div>
+                    </div>
+
+                    <div class="price">
+                        <span id="value" class="price__value"><%= product.value %></span>
+                        <span id="currency" class="price__currency"><%= common.currency[product.currency] %></span>
+                    </div>
+
+                    <form id="buyForm" class="buy-form" action="buy">
+
+                        <div class="size">
+                            <span class="size__title">Размер:</span>
+                            <div id="sizeList" class="size-list">
+                                <%
+                                for(let i of product.size) { %>
+                                <input class="size-list__radio" type="radio" name="size" id="size_<%= i %>" value="<%= i %>">
+                                <label class="size-list__item noselect" for="size_<%= i %>"> <%= common.size.labels[i] %> </label>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="color">
+                            <span class="color__title">Цвет:</span>
+                            <div id="colorList" class="color-list">
+                                <%
+                                for(let i of product.color) { %>
+                                    <input class="color-list__radio" type="radio" name="color" id="color_<%= i %>" value="<%= i %>">
+                                    <label class="color-list__item" for="color_<%= i %>" style="background-color: #<%= common.color.hexCodes[i] %>"> </label>
+                                <% } %>
+                            </div>
+                        </div>
+
+                        <input id="buyButton" type="submit" class="buy-button" value="Купить" ><br>
+                    </form>
+
+                    <a id="favoriteButton" class="favorite-button noselect">
+                        <!--=include img/icons/filled_heart.svg -->
+                        Отложить на потом
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="support">
+                <div class="footer__title">Сервис и поддержка</div>
+                <div class="support-part1">
+                    <ul class="support-part2__list footer__list">
+
+                        <%
+                        for(let item of common.support.labels1) { %>
+                        <li class="footer__item">
+                            <a class="footer__link" href="">
+                                <%= item %>
+                            </a>
+                        </li>
+                        <% } %>
+
+                    </ul>
+                </div>
+                <div class="support-part2">
+                    <ul class="support-part2__list footer__list">
+
+                        <%
+                        for(let item of common.support.labels2) { %>
+                        <li class="footer__item">
+                            <a class="footer__link" href="">
+                                <%= item %>
+                            </a>
+                        </li>
+                        <% } %>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="about">
+                <div class="footer__title">О компании</div>
+                <div class="about-part1">
+                    <ul class="about-part1__list footer__list">
+
+                        <%
+                        for(let item of common.about.labels1) { %>
+                        <li class="footer__item">
+                            <a class="footer__link" href="">
+                                <%= item %>
+                            </a>
+                        </li>
+                        <% } %>
+
+                    </ul>
+                </div>
+                <div class="about-part2">
+                    <ul class="about-part2__list footer__list">
+
+                        <%
+                        for(let item of common.about.labels2) { %>
+                        <li class="footer__item">
+                            <a class="footer__link" href="">
+                                <%= item %>
+                            </a>
+                        </li>
+                        <% } %>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="services">
+                    <ul class="services__list">
+                        <li class="services__item">
+                            <a class="services__link">
+                                <div class="image-block">
+                                    <div class="image-block__container">
+                                        <!--=include img/icons/delivery.svg -->
+                                    </div>
+                                </div>
+                                бесплатная доставка от 4000 ₽
+                            </a>
+                        </li>
+                        <li class="services__item">
+                            <a class="services__link">
+                                <div class="image-block">
+                                    <div class="image-block__container">
+                                        <!--=include img/icons/samples.svg -->
+                                    </div>
+                                </div>
+                                пробники в подарок при каждой покупке
+                            </a>
+                        </li>
+                        <li class="services__item">
+                            <a class="services__link">
+                                <div class="image-block">
+                                    <div class="image-block__container">
+                                        <!--=include img/icons/cup.svg -->
+                                    </div>
+                                </div>
+                                акции и подарки за покупку
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+
+            <div class="social">
+                <ul class="social__list">
+                    <li class="social__item">
+                        <a class="social__link" href="https://facebook.com">
+                            <div class="image-container">
+                                <!--=include img/icons/facebook.svg -->
+                            </div>
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a class="social__link" href="https://twitter.com">
+                            <div class="image-container">
+                                <!--=include img/icons/twitter.svg -->
+                            </div>
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a class="social__link" href="https://instagram.com">
+                            <div class="image-container">
+                                <!--=include img/icons/instagram.svg -->
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__endline">
+                <div class="footer__end">
+                    2005-2017 © 7h35h0p.ru - модный интернет магазин одежды, обуви и аксессуаров.<br>
+                    Все права защищены. Доставка по всей России.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="js/scripts.js"></script>
+</body>
+
+</html>
