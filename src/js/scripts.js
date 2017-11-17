@@ -46,7 +46,7 @@ let socialWrapped = false;
 let socialWrapped2 = false;
 let servicesWrapped = false;
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize', (() => {
     social.classList.remove('wrapped');
 
     if(support.getBoundingClientRect().top < services.getBoundingClientRect().top)
@@ -67,5 +67,5 @@ window.addEventListener('resize', () => {
     if(socialWrapped2 || (socialWrapped && !servicesWrapped)) {
         social.classList.add('wrapped');
     }
-}
+})()
 );
