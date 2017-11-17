@@ -2,4 +2,5 @@
 dist/
 node_modules/
 start.bat
+prod.bat
 the_shop_preview.jpg

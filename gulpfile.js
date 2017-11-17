@@ -7,32 +7,40 @@ const ejs           = require('gulp-ejs');
 const gutil         = require('gulp-util');
 const sourcemaps    = require('gulp-sourcemaps');
 const imagemin      = require('gulp-imagemin');
+const include       = require('gulp-include');
+const gulpIf        = require('gulp-if');
+
+const commonData    = require('./src/common-data');
+const productData   = require('./src/product-data');
+
+const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 gulp.task('styles', () => {
     gulp.src('src/less/main.less')
-        .pipe(sourcemaps.init())
+        .pipe(gulpIf(isDevelopment, sourcemaps.init()))
         .pipe(less())
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write())
+        .pipe(gulpIf(isDevelopment, sourcemaps.write()))
         .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
-        .pipe(imagemin())
+        .pipe(gulpIf(!isDevelopment, imagemin()))
         .pipe(gulp.dest('./dist/img'));
 });
 
 gulp.task('js', () => {
     gulp.src('src/js/**/*.*')
-        .pipe(sourcemaps.init())
-        .pipe(sourcemaps.write())
+        .pipe(gulpIf(isDevelopment, sourcemaps.init()))
+        .pipe(gulpIf(isDevelopment, sourcemaps.write()))
         .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('html', () => {
     gulp.src('src/index.ejs')
-    .pipe(ejs().on('error', gutil.log))
+    .pipe(ejs({common: commonData, product: productData}).on('error', gutil.log))
+    .pipe(include()).on('error', console.log)
     .pipe(rename('index.html'))
         .pipe(gulp.dest('./dist'));
 });

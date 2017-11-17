@@ -1,29 +1,39 @@
-const buyForm = document.getElementById("buyForm");
-const preview_image = document.getElementById("previewImage");
+import PropertySelector from './property-selector.js';
 
-const colorNames = ["white", "yellow", "green"];
-const images_dir = "img/tshirts";
-const product_img_name = "tshirt";
+const product = document.getElementById('product');
+const previewImage = document.getElementById('previewImage');
+const colorNames = ['white', 'yellow', 'green'];
+const imagesDir = 'img/tshirts';
+const productImgName = 'tshirt';
 
-buyForm.addEventListener("click", (mouseEvent) =>
-{
-    if(mouseEvent.target.getAttribute("name") == "color")
-    {
-        preview_image.setAttribute("src", images_dir + "/" + product_img_name + "_" + colorNames[mouseEvent.target.getAttribute("value")] + ".jpg");
+new PropertySelector(document.getElementById('colorList'), product);
+new PropertySelector(document.getElementById('sizeList'), product);
+
+product.addEventListener('property-selected', event => {
+    const data = event.detail;
+
+    if (data.type === 'color') {
+        changePicture(data.value);
+    }
+
+    if (data.type === 'size') {
+        changePrice();
+    }
+});
+
+function changePrice() {
+    document.getElementById('value').innerHTML = +new Date();
+}
+
+function changePicture(color) {
+    previewImage.setAttribute('src', imagesDir + '/' + productImgName + '_' + colorNames[color] + '.jpg');
+}
+
+product.addEventListener('click', (mouseEvent) => {
+    if (mouseEvent.target.hasAttribute('favorite')) {
+        mouseEvent.target.removeAttribute('favorite');
+    } else {
+        mouseEvent.target.setAttribute('favorite', '');
     }
 }
 );
-
-const favoriteButton = document.getElementById("favoriteButton");
-
-favoriteButton.onclick = function()
-{
-    if(favoriteButton.hasAttribute("favorite"))
-    {
-        favoriteButton.removeAttribute("favorite");
-    }
-    else
-    {
-        favoriteButton.setAttribute("favorite", "");
-    }
-};
